@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/zhuanji",
+    "pages/index/wode",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小摩羯音乐园",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar":{
+      "list":[
+          {
+              "pagePath":"pages/index/index",
+              "iconPath":"img/faxian0.png",
+              "selectedIconPath":"img/faxian1.png",
+              "text":"发现"
+          },
+          {
+              "pagePath":"pages/index/zhuanji",
+              "iconPath": "img/zhuanji0.png",
+              "selectedIconPath": "img/zhuanji1.png",
+              "text":"专辑"
+          },
+            {
+                "pagePath": "pages/index/wode",
+                "iconPath": "img/wode0.png",
+                "selectedIconPath": "img/wode1.png",
+                "text": "我的"
+            }   
+      ],
+      "selectedColor":"#2769b4",
+      "color":"#000000"
+  }
+}

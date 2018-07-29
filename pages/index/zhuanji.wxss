@@ -1,0 +1,22 @@
+/* pages/index/zhuanji.wxss */
+.zhuanji_list{
+  width: 85%;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom:30rpx;
+  padding-top: 30rpx;
+  border-bottom: 2rpx solid #bcbcbc
+}
+.zhuanjiText{
+  font-size: 30rpx;
+}
+.zhuanjiText2{
+  font-size: 20rpx;
+  color:#bcbcbc
+}
+.zhuanji_des{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 30rpx
+}

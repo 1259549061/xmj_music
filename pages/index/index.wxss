@@ -1,0 +1,47 @@
+/**index.wxss**/
+.index_swiperBox{
+    width:100%
+}
+.fenlei{
+    margin-top: 30rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-around
+}
+.bangtext{
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: left;
+    font-size: 30rpx;
+    margin-top: 30rpx;
+    border-left: 5rpx solid #2d69b4;
+    margin-left: 60rpx;
+    padding-left: 20rpx
+}
+ul{
+  padding:0;
+  margin: 0;
+  width: 90%;
+  padding-bottom: 30rpx;
+  overflow: hidden
+}
+ul li{
+  font-size: 25rpx;
+  display: flex;
+  width:100%;
+  padding:0;
+  margin-top: 40rpx;
+}
+.li_flex{
+ flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
+}
+.li_flex2{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
