@@ -35,7 +35,16 @@ App({
       }
     })
   },
+  onShow:function(){
+    if (getCurrentPages().length!=0 && getCurrentPages()[getCurrentPages().length - 1].route != 'pages/index/index'){
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    }
+  },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    innerAudioContext: {},
+    geci:[]
   }
 })

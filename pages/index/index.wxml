@@ -1,30 +1,34 @@
 <!--index.wxml-->
-<view class="container">
-  <swiper indicator-dots="{{indicatorDots}}" class='index_swiperBox' indicator-color='#ffffff' indicator-active-color="#2d69b4"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}" wx:key="{{item.name}}">
-    <swiper-item>
-    <view  bindtap="chooseTab" style='width:100%'>
-      <image src="{{item.path}}" class="slide-image" style="width:100%" />
+<view class="container indexPage">
+  <view class='sousuobox'>
+    <view class='sousuo_imageview'>
+      <image src='../../img/yinfu.png' class='sousuo_image' wx-if="{{isPlay==0}}" bindtap='picplay'></image>
+      <image src='../../img/yinfu.png' class='sousuo_image2' wx-if="{{isPlay==1}}" bindtap='picplay'></image>
     </view>
-    </swiper-item>
-  </block>
-</swiper>
-<view class='fenlei'>
-    <image wx:for="{{fenlei}}" wx:key="{{item.name}}" 
-    src='{{item.path}}' style='width:120rpx;height:120rpx' bindtap='chooseTab' data-tab="{{item.name}}" data-index="{{item.index}}" />
-</view>
-<view class='bangtext'>{{bang_text}}</view>
-<ul>
-  <li wx:for="{{gequ_lists}}" wx:key="{{item.id}}">
-  <view class='li_flex'>
-    <view class='list_name'>{{item.name}}</view>
+    <input type='text' placeholder-style="padding-left:20rpx;" confirm-type="search" placeholder="搜索：请输入歌曲名" bindconfirm="mysearch"></input>
   </view>
-  <view class='li_flex2'>
-    <view class='list_auth'> {{item.author}}</view>
-    <image src='{{item.src}}' style='width:40rpx;height:40rpx' bindtap='playMusic' data-itemdetail="{{item}}"/>
+  <swiper indicator-dots="{{indicatorDots}}" class='index_swiperBox' indicator-color='#ffffff' indicator-active-color="#2d69b4" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{item.name}}">
+      <swiper-item>
+        <view style='width:100%'>
+          <image src="{{item.path}}" class="slide-image" style="width:100%" />
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='fenlei'>
+    <image wx:for="{{fenlei}}" wx:key="{{item.name}}" src='{{item.path}}' style='width:120rpx;height:120rpx' bindtap='chooseTab' data-tab="{{item.name}}" data-index="{{item.index}}" />
   </view>
-  </li>
-</ul>
+  <view class='bangtext'>{{bang_text}}</view>
+  <ul>
+    <li wx:for="{{gequ_lists}}" wx:key="{{item.id}}" bindtap='playMusic' data-itemdetail="{{item}}">
+      <view class='li_flex'>
+        <view class='list_name'>{{item.name}}</view>
+      </view>
+      <view class='li_flex2'>
+        <view class='list_auth'> {{item.author}}</view>
+      </view>
+    </li>
+  </ul>
 
 </view>

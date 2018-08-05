@@ -2,6 +2,42 @@
 .index_swiperBox{
     width:100%
 }
+.sousuobox{
+  display: flex;
+  width: 100%;
+  margin-bottom: 10rpx;
+  justify-content: space-between;
+  font-size: 26rpx;
+  overflow-x: hidden;
+}
+.sousuobox input{
+  border: 1rpx solid #BCBCBC;
+  border-radius: 10rpx;
+  width: 90%;
+  flex: 1
+}
+.sousuo_imageview{
+  width: 100rpx;
+  height: 50rpx;
+  text-align: center;
+}
+.sousuo_image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.sousuo_image2{
+  width: 50rpx;
+  height: 50rpx;
+  animation: myrotate 4s linear infinite
+}
+@-webkit-keyframes myrotate{
+  from {
+    transform: rotate(0)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
 .fenlei{
     margin-top: 30rpx;
     width: 100%;
@@ -19,27 +55,28 @@
     margin-left: 60rpx;
     padding-left: 20rpx
 }
-ul{
+.indexPage ul{
   padding:0;
   margin: 0;
   width: 90%;
   padding-bottom: 30rpx;
   overflow: hidden
 }
-ul li{
-  font-size: 25rpx;
+.indexPage ul li{
+  font-size: 28rpx;
   display: flex;
   width:100%;
   padding:0;
-  margin-top: 40rpx;
+  height: 70rpx;
+  line-height: 70rpx;
 }
-.li_flex{
- flex: 1;
+.indexPage .li_flex{
+ flex: 2;
   display: flex;
   justify-content: flex-start;
   align-items: center
 }
-.li_flex2{
+.indexPage .li_flex2{
   flex: 1;
   display: flex;
   justify-content: space-between;

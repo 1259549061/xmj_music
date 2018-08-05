@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    isPlay: 0,
     indicatorDots: true,
     autoplay: true,
     interval: "3000",
@@ -48,7 +49,6 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    innerAudioContext: {},
     ispull: 0
   },
   //   //事件处理函数
@@ -89,36 +89,72 @@ Page({
   chooseTab: function(val) {
     this.getpaihang(val.target.dataset.index, val)
   },
-  playMusic: function(val) {
-    let detail = val.target.dataset.itemdetail;
-    let songId = detail.id;
-    let self = this;
-    for (let i = 0; i < this.data.gequ_lists.length; i++) {
-      if (this.data.gequ_lists[i].id == songId) {
-        this.data.gequ_lists[i].src = '/img/playing.png';
-        this.setData({
-          gequ_lists: this.data.gequ_lists
-        })
-        break;
-      }
+  picplay:function(){
+    console.log(this.data.isPlay)
+    if(this.data.isPlay == 1){
+      wx.navigateTo(
+        {
+          url:'/pages/index/songDetails'
+        }
+      )
     }
-    console.log(this.data.gequ_lists)
-    wx.request({
-      url: 'https://neteasemusic.leanapp.cn/music/url?id=' + songId,
-      success: function(res) {
-        console.log(res)
-        self.data.innerAudioContext = wx.createInnerAudioContext();
-        self.data.innerAudioContext.autoplay = true;
-        self.data.innerAudioContext.src = res.data.data[0].url;
-      }
-    })
   },
-  getpaihang: function(index, val) { //新歌0 热歌1  原创2 飙升3
+  mysearch:function(event){
+    console.log(event)
+    let self = this;
     wx.showLoading({
       title: '加载中',
       mask: true
     })
+    wx.request({
+      url: 'https://neteasemusic.leanapp.cn/search?keywords='+event.detail.value,
+      success:function(res){
+        console.log(res)
+        let arr = [];
+        try{
+          res.data.result.songs.map(val => {
+            arr.push({
+              id: val.id,
+              name: ((arr.length + 1) > 9 ? (arr.length + 1) : ('0' + (arr.length + 1))) + '、' + val.name,
+              author: val.artists[0].name,
+              picurl: val.artists[0].picUrl,
+              src: '/img/play.png'
+            })
+          })
+          self.setData({
+            gequ_lists:arr,
+            bang_text:'搜索结果'
+          })
+          wx.hideLoading();
+        }catch(err){
+          console.log(err);
+          wx.hideLoading();
+          wx.showToast({
+            title: 'sorry~搜索结果出错啦',
+          })
+        }
+      }
+    })
+  },
+  playMusic: function(val) {
+    this.setData(
+      {
+        isPlay:1 
+      }
+    )
+    let detail = val.currentTarget.dataset.itemdetail;
+    wx.navigateTo({
+      url: '/pages/index/songDetails?id=' + detail.id + '&name=' + detail.name + '&author=' + detail.author
+    })
+  },
+  getpaihang: function(index, val) { //新歌0 热歌1  原创2 飙升3
     let self = this;
+    if (self.data.ispull != 1){
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+    }
     wx.request({
       url: 'https://neteasemusic.leanapp.cn/top/list?idx=' + index,
       success: function(res) {
@@ -144,13 +180,14 @@ Page({
             bang_index: val.target.dataset.index
           })
         }
-        wx.hideLoading();
         if (self.data.ispull == 1) {
           wx.stopPullDownRefresh();
           wx.hideNavigationBarLoading();
           self.setData({
             ispull: 0
           })
+        }else{
+          wx.hideLoading();
         }
       }
     })

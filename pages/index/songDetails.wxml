@@ -1,0 +1,16 @@
+<view class='detail_backbox'>
+  <view class='detail_back'>
+    <scroll-view scroll-y class='detail_main'>
+      <ul class="detai_ul">
+        <li class="detai_li" wx:for="{{lists}}" wx:key="{{item.text}}">{{item.text}}</li>
+      </ul>
+    </scroll-view>
+    <view class='detail_btn'>
+      <image src='../../img/left.png'></image>
+      <image src='../../img/bofang.png' wx-if="{{isplaying==1}}" bindtap='playOrzt'></image>
+      <image src='../../img/zanting.png' wx-if="{{isplaying==0}}" bindtap='playOrzt'></image>
+      <image src='../../img/right.png'></image>
+    </view>
+  </view>
+
+</view>
