@@ -19,7 +19,13 @@
   <view class='fenlei'>
     <image wx:for="{{fenlei}}" wx:key="{{item.name}}" src='{{item.path}}' style='width:120rpx;height:120rpx' bindtap='chooseTab' data-tab="{{item.name}}" data-index="{{item.index}}" />
   </view>
-  <view class='bangtext'>{{bang_text}}</view>
+  <view class='bangtext'>
+    <text>{{bang_text}}</text>
+    <view class='bfqb'  bindtap='playAll'>
+      <image src='../../img/all.png' style='width:40rpx;height:40rpx'></image>
+      <text class='bofangAll'>播放全部</text>
+    </view>
+  </view>
   <ul>
     <li wx:for="{{gequ_lists}}" wx:key="{{item.id}}" bindtap='playMusic' data-itemdetail="{{item}}">
       <view class='li_flex'>

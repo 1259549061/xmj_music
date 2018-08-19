@@ -14,7 +14,7 @@ Page({
   onLoad: function () {
     this.getZhuanji();
   },
-  getZhuanji(pull){
+  getZhuanji(pull) {
     if(!pull){
       wx.showLoading({
         title: 'loading...',
@@ -22,10 +22,10 @@ Page({
     }
     let self = this;
     wx.request({
-      url: 'https://neteasemusic.leanapp.cn/artist/album?id=5781',
+      url: 'https://neteasemusic.leanapp.cn/artist/album?id=3684',
       success: function (res) {
         console.log(res)
-        if(pull){
+        if (pull) {
           wx.stopPullDownRefresh();
         }else{
           wx.hideLoading();
@@ -52,44 +52,44 @@ Page({
       }
     })
   },
-  zhuanji_detail:function(val){
+  zhuanji_detail: function (val) {
     console.log(val)
     let content = val.target.dataset.zhuanji;
     console.log(content)
-      let self = this;
-      wx.request({
-        url: 'https://neteasemusic.leanapp.cn/album?id=' + content.id,
-        success:function(res){
-          console.log(res.data)
-        }
-      })
+    let self = this;
+    wx.request({
+      url: 'https://neteasemusic.leanapp.cn/album?id=' + content.id,
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -103,13 +103,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

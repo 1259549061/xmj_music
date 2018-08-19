@@ -1,0 +1,10 @@
+<!--pages/index/zhuanji2.wxml-->
+<view class="container">
+  <view wx:for="{{zhuanji_list}}" wx:key="{{item.id}}" class='zhuanji_list' bindtap="zhuanji_detail" data-zhuanji="{{item}}">
+    <image src='{{item.picurl}}' style='width:130rpx;height:130rpx'></image>
+    <view class='zhuanji_des'>
+      <text class='zhuanjiText'>{{item.name}}</text>
+      <text class='zhuanjiText2'>{{item.size}}首歌曲，发行时间：{{item.time}}</text>
+    </view>
+  </view>
+</view>

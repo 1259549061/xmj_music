@@ -1,15 +1,17 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index/songDetails",
     "pages/index/zhuanji",
+    "pages/index/zhuanji2",
     "pages/index/wode",
-    "pages/logs/logs",
-    "pages/index/songDetails"
+    "pages/logs/logs"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "最好的薛之谦",
+    "navigationBarTitleText": "小摩羯私家园",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true
   },
@@ -25,7 +27,13 @@
               "pagePath":"pages/index/zhuanji",
               "iconPath": "img/zhuanji0.png",
               "selectedIconPath": "img/zhuanji1.png",
-              "text":"专辑"
+              "text":"薛"
+          },
+          {
+            "pagePath": "pages/index/zhuanji2",
+            "iconPath": "img/zhuanji0.png",
+            "selectedIconPath": "img/zhuanji1.png",
+            "text": "林"
           },
             {
                 "pagePath": "pages/index/wode",

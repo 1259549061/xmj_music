@@ -45,6 +45,9 @@ App({
   globalData: {
     userInfo: null,
     innerAudioContext: {},
-    geci:[]
+    geci:[],
+    playId:'',
+    isplaying:1,
+    allInfo:[]//播放列表
   }
 })

@@ -53,7 +53,17 @@
     margin-top: 30rpx;
     border-left: 5rpx solid #2d69b4;
     margin-left: 60rpx;
-    padding-left: 20rpx
+    padding-left: 20rpx;
+    display: flex;
+    justify-content: space-between
+}
+.bofangAll{
+  color:#2d69b4;
+}
+.bfqb{
+  display: flex;
+  justify-content: flex-end;
+  margin-right:10%;
 }
 .indexPage ul{
   padding:0;
@@ -74,11 +84,17 @@
  flex: 2;
   display: flex;
   justify-content: flex-start;
-  align-items: center
+  align-items: center;
+  overflow-x: hidden;
 }
 .indexPage .li_flex2{
   flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center
+}
+.list_name{
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

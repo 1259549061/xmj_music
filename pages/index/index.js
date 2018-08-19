@@ -143,6 +143,19 @@ Page({
       }
     )
     let detail = val.currentTarget.dataset.itemdetail;
+    app.globalData.allInfo = this.data.gequ_lists;
+    wx.navigateTo({
+      url: '/pages/index/songDetails?id=' + detail.id + '&name=' + detail.name + '&author=' + detail.author
+    })
+  },
+  playAll:function(){
+    this.setData(
+      {
+        isPlay: 1
+      }
+    )
+    app.globalData.allInfo = this.data.gequ_lists;
+    let detail = this.data.gequ_lists[0];
     wx.navigateTo({
       url: '/pages/index/songDetails?id=' + detail.id + '&name=' + detail.name + '&author=' + detail.author
     })
